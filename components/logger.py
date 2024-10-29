@@ -20,7 +20,7 @@ class Logger(Singleton):
         """
         self._log_strategy = log_strategy
 
-    def set_log_strategy(self, log_strategy: IWriter):
+    def set_writer(self, log_strategy: IWriter):
         """
         Изменяет вариант записи сообщения
         :param log_strategy: выбранная стратегия логирования
