@@ -33,7 +33,15 @@ class Logger(Singleton):
         :param level: уровень важности сообщения
         :param message: текст сообщения для записи в лог
         """
+        formatted_message = self._format_message(level, message)
         with self._lock:
-            time_stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            formatted_message = f"{time_stamp} [{level}] {message}"
             self._log_strategy.write(formatted_message)
+
+    def _format_message(self, level: Levels, message: str) -> str:
+        """
+        Форматирует сообщение
+        :param level: уровень важности сообщения
+        :param message: текст сообщения для записи в лог
+        """
+        time_stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        return f"{time_stamp} [{level}] {message}"
