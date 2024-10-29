@@ -1,7 +1,7 @@
 name: Build and test
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: [ "feature" ]
 permissions:
   contents: read
 jobs:
